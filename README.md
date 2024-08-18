@@ -8,6 +8,7 @@ Actualmente existen múltiples plataformas de streaming que le proporcionan al u
 
 El proyecto tiene como objetivo hacer un demo de un sistema de recomendación de películas para así simplificar al usuario su toma de decisiones y eficientar su tiempo de entretenimiento a partir de una recopilación de datos no de una sola plataforma como lo podemos ver comúnmente, si no de varias así como: Netflix, Amazon Prime, Disney+, Max, y es lo por lo que lo considero un proyecto interesante. Por otro lado, al tener que integrar datos de múltiples fuentes y manejar la diversidad de preferencias de muchos usuarios, considero que le da una complejidad única al proyecto.
 
+Algortimo
 
 Entradas
 Edad
