@@ -9,13 +9,12 @@ Actualmente existen múltiples plataformas de streaming que le proporcionan al u
 
 El proyecto tiene como objetivo hacer un demo de un sistema de recomendación de películas para así simplificar al usuario su toma de decisiones y eficientar su tiempo de entretenimiento a partir de una recopilación de datos no de una sola plataforma como lo podemos ver comúnmente, si no de varias así como: Netflix, Amazon Prime, Disney+, Max, y es lo por lo que lo considero un proyecto interesante. Por otro lado, al tener que integrar datos de múltiples fuentes y manejar la diversidad de preferencias de muchos usuarios, considero que le da una complejidad única al proyecto.
 
-Algortimo
-
+Algortimo proyecto
 Entradas
-Edad
-Género_favorito 
-Duración_estimadapref
-Temática_favorita
+Edad (número entero)
+Género_favorito (texto | string)
+Duración_estimadapref (número entero)
+Temática_favorita (texto | string)
 
 Proceso:
 1.Pedir Edad
@@ -40,9 +39,9 @@ Proceso:
 8.2 Mostrar las 3 primeras recomendaciones que son las que tienen mayor porcentaje de similitud al usuario y su plataforma.
 9.Si no hay resultados en Lista_de_recomendaciones:
 9.1 Ampliar el rango de Duración_estimadapref ± 30 minutos
-9.2 Ampliar rango de Porcentaje_de_similitud >= 50%  
+9.2 Ampliar rango de Porcentaje_de_similitud >= 50%
 9.3 Regresar desde paso 7
-10.Si todavía no hay resultados regresar al Paso 1 y pedir inputs distintos. 
+10.Si todavía no hay resultados regresar al Paso 1 y pedir inputs distintos.
 
 Salidas:
-Lista_de_recomendaciones con las 3 películas recomendadas
+Lista_de_recomendaciones (texto | string) con las 3 películas recomendadas.
