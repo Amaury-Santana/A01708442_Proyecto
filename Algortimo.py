@@ -1,9 +1,9 @@
 Algortimo proyecto
 Entradas
-Edad
-Género_favorito 
-Duración_estimadapref
-Temática_favorita
+Edad (número entero)
+Género_favorito (texto | string) 
+Duración_estimadapref (número entero)
+Temática_favorita (texto | string) 
 
 Proceso:
 1.Pedir Edad
@@ -33,4 +33,4 @@ Proceso:
 10.Si todavía no hay resultados regresar al Paso 1 y pedir inputs distintos. 
 
 Salidas:
-Lista_de_recomendaciones con las 3 películas recomendadas
+Lista_de_recomendaciones (texto | string) con las 3 películas recomendadas. 
