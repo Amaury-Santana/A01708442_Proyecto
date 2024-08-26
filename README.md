@@ -54,7 +54,7 @@ El proyecto tiene como objetivo hacer un demo de un sistema de recomendación de
 
         7.4.1 Si Temática de la película = Temática_favorita, asignar 25% de similitud.
 
-      7.5 Sumar las similitudes calculadas para obtener el Porcentaje_de_similitud.
+      7.5 Porcentaje_de_similitud = Similitud_edad + Similitud_género + Similitud_duración + Similitud_temática
 
       7.6 Si Porcentaje_de_similitud >= 75%, Agregar película a Lista_de_recomendaciones con su Porcentaje_de_similitud.
 
@@ -78,3 +78,9 @@ El proyecto tiene como objetivo hacer un demo de un sistema de recomendación de
    Salidas:
 
     Lista_de_recomendaciones (texto | string) con las 3 películas recomendadas.
+
+
+
+
+    Implementaciones de operaciones con operadores :
+    7.5 Porcentaje_de_similitud = Similitud_edad + Similitud_género + Similitud_duración + Similitud_temática
