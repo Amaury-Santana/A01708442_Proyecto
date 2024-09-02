@@ -81,6 +81,3 @@ El proyecto tiene como objetivo hacer un demo de un sistema de recomendación de
 
 
 
-  Implementaciones de operaciones con operadores :   (suma)
-  
-      7.5 Porcentaje_de_similitud = Similitud_edad + Similitud_género + Similitud_duración + Similitud_temática
