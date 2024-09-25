@@ -11,9 +11,6 @@ lista_peliculas = [
     # Agregar más películas con diferentes características...
 ]
 
-# Inicializar lista de recomendaciones
-lista_de_recomendaciones = []
-
 # Función para calcular similitud
 def calcular_similitud(pelicula, edad, genero_favorito, duracion_estimadapref, tematica_favorita):
     similitud_edad = 0
@@ -66,28 +63,33 @@ def procesar_recomendaciones(lista_peliculas, edad, genero_favorito, duracion_es
             lista_de_recomendaciones.append({"titulo": pelicula["titulo"], "plataforma": pelicula["plataforma"], "similitud": porcentaje_de_similitud})
 
     return lista_de_recomendaciones
+#Cosas nuevas agregadas:
+# Variables para controlar los ajustes de los criterios que se modificaran si no se cumple
+umbral_similitud = 75
+margen_duracion = 15
+criterio_modificado = False
 
-# Aplicar el cálculo de similitud inicial
-lista_de_recomendaciones = procesar_recomendaciones(lista_peliculas, edad, genero_favorito, duracion_estimadapref, tematica_favorita, 75, 15)
+# Ciclo que ajusta los criterios hasta obtener alguna recomendacion
+lista_de_recomendaciones = []
 
-# Mostrar y ordenar las recomendaciones
-if lista_de_recomendaciones:
+while len(lista_de_recomendaciones) == 0:
+    # Aplicar el cálculo de similitud
+    lista_de_recomendaciones = procesar_recomendaciones(lista_peliculas, edad, genero_favorito, duracion_estimadapref, tematica_favorita, umbral_similitud, margen_duracion)
+    
+    if len(lista_de_recomendaciones) == 0:
+        print("No se encontraron suficientes recomendaciones, modificando criterios automáticamente...")
+        
+        # Ajustar las dos variables
+        umbral_similitud -= 25  
+        margen_duracion += 15  
+        criterio_modificado = True
+
+        if umbral_similitud < 25:  
+            print("Criterios muy amplios, no se encontraron recomendaciones.")
+            break
+
+# Uso el ciclo while para cambiar lo que antes hacía con def procesar recomendaciones_, no se si haga el código más eficiente pero fue de las pocas maneras que encontre para hacerlo. 
+# Mostrar las recomendaciones si se encuentran
     """
     Aqui voy a poner como voy a mostrar y ordenar las recomendaciones, cosa que todavía no se hacer
     """
-else:
-    # Modificar criterios en caso de no encontrar recomendaciones suficientes
-    print("No se encontraron suficientes recomendaciones, modificando criterios...")
-    
-    # Refinar el proceso de recomendación con criterios más amplios
-    lista_de_recomendaciones = procesar_recomendaciones(lista_peliculas, edad, genero_favorito, duracion_estimadapref, tematica_favorita, 50, 30)
-    """
-    Por lo que tengo entendido, al usar la función de def procesar_recoemndaciones ...  puedo ahorrarme poner todo de nuevo, entonces la línea de arriba solo cambia los dos valores que modifico 
-    y hace que el código sea menos voltoso. 
-    """
-    if lista_de_recomendaciones:
-        """
-        Aqui voy a poner como voy a mostrar y ordenar las recomendaciones, cosa que todavía no se hacer
-        """
-    else:
-        print("No se encontraron recomendaciones. Por favor, intente con diferentes entradas.")
