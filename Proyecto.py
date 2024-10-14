@@ -4,19 +4,19 @@ genero_favorito = input("Ingrese su género favorito: ")
 duracion_estimadapref = int(input("Ingrese la duración estimada preferida (en minutos): "))
 tematica_favorita = input("Ingrese su temática favorita: ")
 
-# Inicializar lista de películas con 10 películas de diferentes plataformas y características (Agregue un poco de más ejemplos)
+# Lista de películas con 10 películas de diferentes plataformas y características organizada como una matriz 
 lista_peliculas = [
-    {"titulo": "Película 1", "edad_minima": 13, "genero": "Acción", "duracion": 120, "tematica": "Aventura", "plataforma": "Netflix"},
-    {"titulo": "Película 2", "edad_minima": 18, "genero": "Drama", "duracion": 150, "tematica": "Historia", "plataforma": "Amazon Prime"},
-    {"titulo": "Película 3", "edad_minima": 7, "genero": "Comedia", "duracion": 90, "tematica": "Familia", "plataforma": "Disney+"},
-    {"titulo": "Película 4", "edad_minima": 16, "genero": "Terror", "duracion": 100, "tematica": "Suspenso", "plataforma": "HBO Max"},
-    # Agregar más películas con diferentes características...
+    ["Película 1", 13, "Acción", 120, "Aventura", "Netflix"],
+    ["Película 2", 18, "Drama", 150, "Historia", "Amazon Prime"],
+    ["Película 3", 7, "Comedia", 90, "Familia", "Disney+"],
+    ["Película 4", 16, "Terror", 100, "Suspenso", "HBO Max"],
+    # Más películas...
 ]
 
 # Función para calcular el bono adicional
 def calcular_bono(pelicula, genero_favorito):
     bono = 0
-    if pelicula["genero"].lower() == genero_favorito.lower():
+    if pelicula[2].lower() == genero_favorito.lower():  # género es el tercer elemento
         bono = 10  # Bono adicional por coincidencia exacta de género
     return bono
 
@@ -25,19 +25,19 @@ def calcular_similitud(pelicula, edad, genero_favorito, duracion_estimadapref, t
     similitud = 0
     
     # Similitud basada en la edad
-    if pelicula["edad_minima"] <= edad:
+    if pelicula[1] <= edad:  #edad mínima es el segundo elemento
         similitud += 25
     
     # Similitud basada en el género
-    if pelicula["genero"].lower() == genero_favorito.lower():
+    if pelicula[2].lower() == genero_favorito.lower():  #género es el tercer elemento
         similitud += 25
     
     # Similitud basada en la duración
-    if abs(pelicula["duracion"] - duracion_estimadapref) <= 15:
+    if abs(pelicula[3] - duracion_estimadapref) <= 15:  #duración es el cuarto elemento
         similitud += 25
     
     # Similitud basada en la temática
-    if pelicula["tematica"].lower() == tematica_favorita.lower():
+    if pelicula[4].lower() == tematica_favorita.lower():  #temática es el quinto elemento
         similitud += 25
     
     return similitud
@@ -53,11 +53,11 @@ def procesar_recomendaciones(lista_peliculas, edad, genero_favorito, duracion_es
         similitud += calcular_bono(pelicula, genero_favorito)
         
         # Ajustar la similitud si la duración está dentro del margen permitido
-        if abs(pelicula["duracion"] - duracion_estimadapref) <= margen_duracion:
+        if abs(pelicula[3] - duracion_estimadapref) <= margen_duracion:
             similitud += 25
         
         if similitud >= umbral_similitud:
-            lista_de_recomendaciones.append({"titulo": pelicula["titulo"], "plataforma": pelicula["plataforma"], "similitud": similitud})
+            lista_de_recomendaciones.append({"titulo": pelicula[0], "plataforma": pelicula[5], "similitud": similitud})
     
     return lista_de_recomendaciones
 
@@ -81,8 +81,6 @@ while len(lista_de_recomendaciones) == 0:
         if umbral_similitud < 25:
             print("No se encontraron recomendaciones con los criterios actuales.")
             break
-# Uso el ciclo while para cambiar lo que antes hacía con def procesar recomendaciones_, no se si haga el código más eficiente pero fue de las pocas maneras que encontre para hacerlo. 
-
 
 # Mostrar las recomendaciones
     """
